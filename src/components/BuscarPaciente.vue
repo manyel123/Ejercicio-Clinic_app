@@ -4,7 +4,7 @@
       <h2>Buscar Historia Clínica</h2>
       <form v-on:submit.prevent="searchUser">
         <input
-          type="integer"
+          type="number"
           v-model='id'
           placeholder="Ingrese número de historia"
         />

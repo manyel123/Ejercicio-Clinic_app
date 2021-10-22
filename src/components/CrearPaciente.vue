@@ -3,7 +3,7 @@
     <div class="container_crearPaciente_paciente">
         <h2>Registrar nuevo paciente</h2>
       <form v-on:submit.prevent="processSignUp"> 
-        <input type="integer" v-model="paciente.document" placeholder="N° Documento del paciente" />
+        <input type="number" v-model="paciente.document" placeholder="N° Documento del paciente" />
         <br />
         <input type="text" v-model="paciente.name" placeholder="Nombre" />
         <br />
@@ -11,7 +11,7 @@
         <br />
         <input type="text" v-model="paciente.fechaNacim" placeholder="Fecha de Nacimiento" />
         <br />
-        <input type="integer" v-model="paciente.telefono" placeholder="Telefono" />
+        <input type="number" v-model="paciente.telefono" placeholder="Telefono" />
         <br />
         <input type="text" v-model="paciente.direccion" placeholder="Direccion" />
         <br />
