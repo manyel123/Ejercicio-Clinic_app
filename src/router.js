@@ -4,7 +4,8 @@ import App from './App.vue';
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
-import Account from './components/Account.vue'
+import CrearPaciente from './components/CrearPaciente.vue'
+import BuscarPaciente from './components/BuscarPaciente.vue'
 
 const routes = [{
         path: '/',
@@ -27,9 +28,14 @@ const routes = [{
         component: Home
       },
       {
-        path: '/user/account',
-        name: "account",
-        component: Account
+        path: '/user/crearPaciente',
+        name: "crearPaciente",
+        component: CrearPaciente
+      },
+      {
+        path: '/user/buscarPaciente',
+        name: "buscarPaciente",
+        component: BuscarPaciente
       }
 ];
 

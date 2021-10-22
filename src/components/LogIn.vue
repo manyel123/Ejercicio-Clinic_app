@@ -27,7 +27,7 @@ export default {
   methods: {
     processLogInUser: function () {
       axios
-        .post("https://mision-tic-bank-be88.herokuapp.com/login/", this.user, {
+        .post("https://historias-clinicas-app-be.herokuapp.com/login/", this.user, {
           headers: {},
         })
         .then((result) => {
@@ -57,7 +57,7 @@ export default {
   align-items: center;
 }
 .container_logIn_user {
-  border: 3px solid #af486a;
+  border: 3px solid #18af8f;
   border-radius: 10px;
   width: 25%;
   height: 60%;
@@ -78,7 +78,7 @@ export default {
   box-sizing: border-box;
   padding: 10px 20px;
   margin: 5px 0;
-  border: 1px solid #af486a;
+  border: 1px solid #1a5ca7;
 }
 .logIn_user button {
   width: 100%;
@@ -92,7 +92,8 @@ export default {
 }
 .logIn_user button:hover {
   color: #e5e7e9;
-  background: crimson;
+  background: rgb(23, 116, 54);
   border: 1px solid #283747;
+  cursor: pointer;
 }
 </style>

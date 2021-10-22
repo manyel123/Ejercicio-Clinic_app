@@ -11,7 +11,7 @@
         <br />
         <input type="email" v-model="user.email" placeholder="Email" />
         <br />
-        <input type="number" v-model="user.account.balance" placeholder="Initial Balance" />
+        <input type="document" v-model="user.document" placeholder="Document" />
         <br />
         <button type="submit">Registrarse</button>
       </form>
@@ -29,18 +29,14 @@ export default {
         password: "",
         name: "",
         email: "",
-        account: {
-          lastChangeDate: new Date().toJSON().toString(),
-          balance: 0,
-          isActive: true,
-        },
+        document: "",
       },
     };
   },
   methods: {
     processSignUp: function () {
       axios
-        .post("https://mision-tic-bank-be88.herokuapp.com/user/", this.user, {
+        .post("https://historias-clinicas-app-be.herokuapp.com/user/", this.user, {
           headers: {},
         })
         .then((result) => {
@@ -70,7 +66,7 @@ export default {
   align-items: center;
 }
 .container_signUp_user {
-  border: 3px solid #af486a;
+  border: 3px solid #2d649e;
   border-radius: 10px;
   width: 25%;
   height: 60%;
@@ -91,7 +87,7 @@ export default {
   box-sizing: border-box;
   padding: 10px 20px;
   margin: 5px 0;
-  border: 1px solid #af486a;
+  border: 1px solid #2d649e;
 }
 .signUp_user button {
   width: 100%;
@@ -105,7 +101,8 @@ export default {
 }
 .signUp_user button:hover {
   color: #e5e7e9;
-  background: crimson;
+  background: rgb(23, 116, 54);
   border: 1px solid #283747;
+  cursor: pointer;
 }
 </style>
