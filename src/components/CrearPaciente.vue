@@ -1,40 +1,88 @@
 <template>
   <div class="crearPaciente_paciente">
     <div class="container_crearPaciente_paciente">
-        <h2>Registrar nuevo paciente</h2>
-      <form v-on:submit.prevent="processSignUp"> 
-        <input type="number" v-model="paciente.document" placeholder="N° Documento del paciente" />
+      <h2>Registrar nuevo paciente</h2>
+      <form v-on:submit.prevent="processCrearPaciente">
+        <input
+          type="number"
+          v-model="paciente.document"
+          placeholder="N° Documento del paciente"
+        />
         <br />
         <input type="text" v-model="paciente.name" placeholder="Nombre" />
         <br />
         <input type="email" v-model="paciente.email" placeholder="Email" />
         <br />
-        <input type="text" v-model="paciente.fechaNacim" placeholder="Fecha de Nacimiento" />
+        <input
+          type="text"
+          v-model="paciente.fechaNacim"
+          placeholder="Fecha de Nacimiento"
+        />
         <br />
-        <input type="number" v-model="paciente.telefono" placeholder="Telefono" />
+        <input
+          type="number"
+          v-model="paciente.telefono"
+          placeholder="Telefono"
+        />
         <br />
-        <input type="text" v-model="paciente.direccion" placeholder="Direccion" />
+        <input
+          type="text"
+          v-model="paciente.direccion"
+          placeholder="Direccion"
+        />
         <br />
         <input type="text" v-model="paciente.ciudad" placeholder="Ciudad" />
         <br />
-        <input type="text" v-model="paciente.historia.ultMedTrat" placeholder="Ultimo medico tratante" />
+        <input
+          type="text"
+          v-model="paciente.historia.ultMedTrat"
+          placeholder="Ultimo medico tratante"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.antQuirurgicos" placeholder="Antecedentes quirurgicos" />
+        <input
+          type="text"
+          v-model="paciente.historia.antQuirurgicos"
+          placeholder="Antecedentes quirurgicos"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.antMedicos" placeholder="Antecedentes medicos" />
+        <input
+          type="text"
+          v-model="paciente.historia.antMedicos"
+          placeholder="Antecedentes medicos"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.antFarmacologicos" placeholder="Antecedentes farmacologicos" />
+        <input
+          type="text"
+          v-model="paciente.historia.antFarmacologicos"
+          placeholder="Antecedentes farmacologicos"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.tratamientoFarmacol" placeholder="Tratamiento farmacologico actual" />
+        <input
+          type="text"
+          v-model="paciente.historia.tratamientoFarmacol"
+          placeholder="Tratamiento farmacologico actual"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.diagPrevio" placeholder="Diagnostico previo" />
+        <input
+          type="text"
+          v-model="paciente.historia.diagPrevio"
+          placeholder="Diagnostico previo"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.diagActual" placeholder="Diagnostico actual" />
+        <input
+          type="text"
+          v-model="paciente.historia.diagActual"
+          placeholder="Diagnostico actual"
+        />
         <br />
-        <input type="text" v-model="paciente.historia.observacion" placeholder="Observaciones" />
+        <input
+          type="text"
+          v-model="paciente.historia.observacion"
+          placeholder="Observaciones"
+        />
         <br />
         <button type="submit">Registrar nuevo paciente</button>
-        </form>
+      </form>
     </div>
   </div>
 </template>
@@ -62,28 +110,31 @@ export default {
           diagPrevio: "",
           diagActual: "",
           observacion: "",
-        }, 
+        },
       },
     };
   },
   methods: {
-    processSignUp: function () {
+    processCrearPaciente: function () {
       axios
-        .post("https://historias-clinicas-app-be.herokuapp.com/paciente/", this.paciente, {
-          headers: {},
-        })
+        .post(
+          "https://historias-clinicas-app-be.herokuapp.com/paciente/",
+          this.paciente,
+          {
+            headers: {},
+          }
+        )
         .then(() => {
           alert("Registro exitoso.");
-          Object.keys(this.paciente).forEach(key => { 
-            if(key!='historia'){
-              this.paciente[key] = ""
-            }
-            else{
-              Object.keys(this.paciente.historia).forEach(key => {
+          Object.keys(this.paciente).forEach((key) => {
+            if (key != "historia") {
+              this.paciente[key] = "";
+            } else {
+              Object.keys(this.paciente.historia).forEach((key) => {
                 this.paciente.historia[key] = "";
-              })
+              });
             }
-          }) 
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -103,7 +154,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.container_crearPaciente_paciente{
+.container_crearPaciente_paciente {
   border: 3px solid #2d649e;
   border-radius: 10px;
   width: 95%;
